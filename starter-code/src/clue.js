@@ -127,9 +127,33 @@ let misteryEnvelope = pickMistery();
 
 function revealMistery(misteryEnvelope)
 {
+    Imprimir();
+
     let l_result = `${misteryEnvelope[0].first_name} ${misteryEnvelope[0].last_name} killed Mr.Boddy using the ${misteryEnvelope[1].name} in the ${misteryEnvelope[2].name}!!!!`;
-    console.log(l_result);
+    document.write(l_result);
 
     return l_result;
+}
 
+revealMistery(misteryEnvelope);
+
+
+function Imprimir()
+{
+    charactersArray.forEach(function printName(e)
+    {
+        let l_title = document.createElement("LI");
+        l_title.textContent = e.first_name + " " + e.last_name;
+
+        let l_image = document.createElement("DIV");
+        l_image.style.backgroundImage = `url(${e.image}`;
+        l_image.style.width="200px";
+        l_image.style.height="200px";
+        l_image.style.backgroundSize = "cover";
+
+
+        l_title.appendChild(l_image);
+        document.body.appendChild(l_title);
+
+    })
 }
